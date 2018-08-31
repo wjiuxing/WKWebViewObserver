@@ -31,7 +31,7 @@ public enum WKWebViewKVOKeyPath: String {
 public class WKWebViewObserver: NSObject {
     weak var webView: WKWebView!
     
-    init(webView: WKWebView) {
+    public init(webView: WKWebView) {
         super.init()
         
         self.webView = webView
@@ -43,13 +43,13 @@ public class WKWebViewObserver: NSObject {
         WKWebViewKVOKeyPath.allCases.forEach { webView.removeObserver(self, forKeyPath: $0.rawValue) }
     }
     
-    typealias WKWebViewObserverOnChangeLoading = (WKWebViewObserver, Bool) -> Void
-    typealias WKWebViewObserverOnChangeEstimatedProgress = (WKWebViewObserver, Float) -> Void
-    typealias WKWebViewObserverOnChangeURL = (WKWebViewObserver, URL) -> Void
-    typealias WKWebViewObserverOnChangeTitle = (WKWebViewObserver, String) -> Void
-    typealias WKWebViewObserverOnChangeCanGoBack = (WKWebViewObserver, Bool) -> Void
-    typealias WKWebViewObserverOnChangeCanGoForward = (WKWebViewObserver, Bool) -> Void
-    typealias WKWebViewObserverOnChangeContentSize = (WKWebViewObserver, CGSize) -> Void
+    public typealias WKWebViewObserverOnChangeLoading = (WKWebViewObserver, Bool) -> Void
+    public typealias WKWebViewObserverOnChangeEstimatedProgress = (WKWebViewObserver, Float) -> Void
+    public typealias WKWebViewObserverOnChangeURL = (WKWebViewObserver, URL) -> Void
+    public typealias WKWebViewObserverOnChangeTitle = (WKWebViewObserver, String) -> Void
+    public typealias WKWebViewObserverOnChangeCanGoBack = (WKWebViewObserver, Bool) -> Void
+    public typealias WKWebViewObserverOnChangeCanGoForward = (WKWebViewObserver, Bool) -> Void
+    public typealias WKWebViewObserverOnChangeContentSize = (WKWebViewObserver, CGSize) -> Void
     
     private var loadingCallback: WKWebViewObserverOnChangeLoading?
     private var estimatedProgressCallback: WKWebViewObserverOnChangeEstimatedProgress?
@@ -60,43 +60,43 @@ public class WKWebViewObserver: NSObject {
     private var contentSizeCallback: WKWebViewObserverOnChangeContentSize?
     
     @discardableResult
-    func onChangeLoading(callback: @escaping WKWebViewObserverOnChangeLoading) -> Self {
+    public func onChangeLoading(callback: @escaping WKWebViewObserverOnChangeLoading) -> Self {
         loadingCallback = callback
         return self
     }
     
     @discardableResult
-    func onChangeEstimatedProgress(callback: @escaping WKWebViewObserverOnChangeEstimatedProgress) -> Self {
+    public func onChangeEstimatedProgress(callback: @escaping WKWebViewObserverOnChangeEstimatedProgress) -> Self {
         estimatedProgressCallback = callback
         return self
     }
     
     @discardableResult
-    func onChangeURL(callback: @escaping WKWebViewObserverOnChangeURL) -> Self {
+    public func onChangeURL(callback: @escaping WKWebViewObserverOnChangeURL) -> Self {
         urlCallback = callback
         return self
     }
     
     @discardableResult
-    func onChangeTitle(callback: @escaping WKWebViewObserverOnChangeTitle) -> Self {
+    public func onChangeTitle(callback: @escaping WKWebViewObserverOnChangeTitle) -> Self {
         titleCallback = callback
         return self
     }
     
     @discardableResult
-    func onChangeCanGoBack(callback: @escaping WKWebViewObserverOnChangeCanGoBack) -> Self {
+    public func onChangeCanGoBack(callback: @escaping WKWebViewObserverOnChangeCanGoBack) -> Self {
         canGoBackCallback = callback
         return self
     }
     
     @discardableResult
-    func onChangeCanGoForward(callback: @escaping WKWebViewObserverOnChangeCanGoForward) -> Self {
+    public func onChangeCanGoForward(callback: @escaping WKWebViewObserverOnChangeCanGoForward) -> Self {
         canGoForwardCallback = callback
         return self
     }
     
     @discardableResult
-    func onChangeContentSize(callback: @escaping WKWebViewObserverOnChangeContentSize) -> Self {
+    public func onChangeContentSize(callback: @escaping WKWebViewObserverOnChangeContentSize) -> Self {
         contentSizeCallback = callback
         return self
     }
