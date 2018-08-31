@@ -13,11 +13,11 @@ public enum WKWebViewKVOKeyPath: String {
     case title = "title"
     case URL = "URL"
 
-    static var allCases: [WKWebViewKVOKeyPath] {
+    public static var allCases: [WKWebViewKVOKeyPath] {
         return [.estimatedProgress, .canGoBack, .canGoForward, .contentSize, .loading, .title, .URL]
     }
 
-    var others: [WKWebViewKVOKeyPath] {
+    public var others: [WKWebViewKVOKeyPath] {
         return WKWebViewKVOKeyPath.allCases.filter { $0 != self }
     }
 }
@@ -64,7 +64,7 @@ class ViewController: UIViewController {
 ```
 
 ## Author
-**Jiuxing Wang** *email: wangjiuxing2010@hotmail.com*
+**Jiuxing Wang** *email: [wangjiuxing2010@hotmail.com](mailto:wangjiuxing2010@hotmail.com)*
 
 ## License
 WKWebViewObserver is released under MIT license. See LICENSE for details.
