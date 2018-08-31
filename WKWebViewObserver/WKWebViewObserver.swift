@@ -19,11 +19,11 @@ public enum WKWebViewKVOKeyPath: String {
     case title = "title"
     case URL = "URL"
     
-    static var allCases: [WKWebViewKVOKeyPath] {
+    public static var allCases: [WKWebViewKVOKeyPath] {
         return [.estimatedProgress, .canGoBack, .canGoForward, .contentSize, .loading, .title, .URL]
     }
     
-    var others: [WKWebViewKVOKeyPath] {
+    public var others: [WKWebViewKVOKeyPath] {
         return WKWebViewKVOKeyPath.allCases.filter { $0 != self }
     }
 }
