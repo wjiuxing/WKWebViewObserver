@@ -7,10 +7,9 @@
 //
 
 import UIKit
-
 import WebKit
 
-public enum WKWebViewKVOKeyPath: String {
+public enum WKWebViewKVOKeyPath: String, CaseIterable {
     case estimatedProgress = "estimatedProgress"
     case canGoBack = "canGoBack"
     case canGoForward = "canGoForward"
@@ -18,11 +17,7 @@ public enum WKWebViewKVOKeyPath: String {
     case loading = "loading"
     case title = "title"
     case URL = "URL"
-    
-    public static var allCases: [WKWebViewKVOKeyPath] {
-        return [.estimatedProgress, .canGoBack, .canGoForward, .contentSize, .loading, .title, .URL]
-    }
-    
+        
     public var others: [WKWebViewKVOKeyPath] {
         return WKWebViewKVOKeyPath.allCases.filter { $0 != self }
     }

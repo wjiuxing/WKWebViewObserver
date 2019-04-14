@@ -20,26 +20,24 @@ class ViewController: UIViewController {
         webView = WKWebView(frame: view.bounds)
         view.addSubview(webView)
         
-        // FIXME: DON'T forget to use the weak-strong dancing in the event closure to avoid retain cycle.
-        
         webViewObserver = WKWebViewObserver(webView: webView)
-            .onChangeEstimatedProgress { /*[weak self]*/ observer, progress in
+            .onChangeEstimatedProgress { observer, progress in
                 print("progress: \(progress)")
                 
                 if progress >= 1.0 {
                     print("progress: \(progress) -- completed.")
                 }
-            }.onChangeCanGoBack { /*[weak self]*/ observer, can in
+            }.onChangeCanGoBack { observer, can in
                 print("canGoBack: \(can)")
-            }.onChangeCanGoForward { /*[weak self]*/ observer, can in
+            }.onChangeCanGoForward { observer, can in
                 print("canGoForward: \(can)")
-            }.onChangeContentSize { /*[weak self]*/ observer, size in
+            }.onChangeContentSize { observer, size in
                 print("contentSize: \(size)")
-            }.onChangeLoading { /*[weak self]*/ observer, loading in
+            }.onChangeLoading { observer, loading in
                 print("loading: \(loading)")
-            }.onChangeTitle { /*[weak self]*/ observer, title in
+            }.onChangeTitle { observer, title in
                 print("title: \(title)")
-            }.onChangeURL { /*[weak self]*/ observer, url in
+            }.onChangeURL { observer, url in
                 print("url: \(url)")
             }
         
@@ -53,7 +51,6 @@ class ViewController: UIViewController {
         
         navigationItem.title = "WKWebViewObserver"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(ViewController.resetButtonTouched(_:)))
-
     }
 }
 
