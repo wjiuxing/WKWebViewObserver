@@ -45,7 +45,10 @@ class ViewController: UIViewController {
     }
     
     fileprivate func reload() {
-        let url = URL(string: "https://github.com/wjiuxing")!
+        let projects = ["KKJSBridge", "WKWebViewObserver", "WJXDateFormatter", "WJXOverlappedImagesView"]
+        let index = Int.random(in: 0..<projects.count)
+        let projectUrl = "https://github.com/wjiuxing/\(projects[index])"
+        let url = URL(string: projectUrl)!
         let request = URLRequest(url: url)
         webView.load(request)
         
