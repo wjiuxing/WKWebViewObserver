@@ -123,8 +123,7 @@ public class WKWebViewObserver: NSObject {
             guard let can = change?[.newKey] as? Bool else { return }
             canGoForwardCallback?(self, can)
             
-        case .contentSize:
-            contentSizeCallback?(self, webView.scrollView.contentSize)
+        case .contentSize: contentSizeCallback?(self, webView.scrollView.contentSize)
         }
     }
 }

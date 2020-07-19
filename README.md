@@ -1,7 +1,7 @@
 # WKWebViewObserver
 WKWebViewObserver is an open-source key path observer on WKWebView. There is no deep technology but a common encapsulation. I'm glad that if you will like it or even give it a star.
 
-Now WKWebViewObserver supports Swift 4.2.
+Now WKWebViewObserver supports Swift 5.0.
 
 ### Supported KeyPaths
 
